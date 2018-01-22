@@ -270,10 +270,6 @@ def brake(Rover):
     Rover.brake = Rover.brake_set
     Rover.steer = 0
 
-def get_steering_angle(angle):
-    conv = (angle/np.pi)*15
-    return conv
-
 def decision_step(Rover):
 
     if Rover.nav_angles is not None:
