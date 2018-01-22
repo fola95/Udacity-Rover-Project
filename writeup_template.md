@@ -356,8 +356,10 @@ As mentioned, I was able to adjust the world map based on roll and pitch angles 
 Going forward I would have loved to understand how to manipulate the nav angles to make my rover biased to the left wall.
 I tried some things like making the Rover.steer=-15 and only adjust to normal steer ( mean navigable angle) when navigable pixels below 250 but greater than 50. But the Rover behaviour was worse than my final solution :) . A really interesting problem and would definitely like to learn how other students accomplish that. :).
 
-Configurations: OS- Mac; Scrren Res- 840 x 524; Graphics Quality - Good; fps was same as default (I see None in drive_rover.py)
+Configurations: OS- Mac; Screen Res- 840 x 524; Graphics Quality - Good; fps was same as default (I see None in drive_rover.py)
+
 I was able to map 57.5% of the environment at 84.8 percent fidelity
+
 
 ![alt tag](https://github.com/fola95/Udacity-Rover-Project/blob/master/code/graphs/autonomousShot.png)
 
