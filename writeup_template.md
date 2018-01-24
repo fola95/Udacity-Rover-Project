@@ -38,11 +38,41 @@ You're reading it! :)
 
 ### Notebook Analysis
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
+The color selection of the obstacles was quite easy it's basically the opposite of the navigable path.
+```
+def obstacles(img, rgb_thresh=(160, 160, 160)):
+    color_select = np.zeros_like(img[:,:,0])
+    below_thresh = (img[:,:,0] < rgb_thresh[0]) \
+                & (img[:,:,1] < rgb_thresh[1]) \
+                & (img[:,:,2] < rgb_thresh[2])
+    color_select[below_thresh]=1
+    return color_select
+```
+For rock samples, I had to analyse the color range for yellow I would need to indicate and threshold for. Using the matplot lib interactive graph was good because the RGB values were available.
+
+```
+def rock_samples(img):
+    color_select = np.zeros_like(img[:,:,0])
+    rock_thresh = (img[:,:,0] >= 140) & (img[:,:,0] <= 187) \
+                & (img[:,:,1] >= 108) & (img[:,:,1] <= 145)\
+                & (img[:,:,2] >= 0) & (img[:,:,2] <= 20)
+    color_select[rock_thresh]=1
+    return color_select
+```
+
 ### Perspective Transform
+
 
 ![alt tag](https://github.com/fola95/Udacity-Rover-Project/blob/master/code/graphs/rock-transform.png "Perspective transform")
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
+The process image function was a combination of the previous steps done in the jupyter notebook.
+The steps are:
+1. Apply perspective tansform on the said image
+2. With the transformed image perform thresholding for objects of interest: navigable path, obstacles and rocks
+3. Once we have the threshold values we convert these to rover coordinates
+4. Rover coordinates are then converted to world map coordinates for mapping
+5. The RGB values for each object to ensure contrast on the world map. Obstacles - RED, Navigable path - Green
 
 ```
 
