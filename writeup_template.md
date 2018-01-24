@@ -74,6 +74,10 @@ The steps are:
 4. Rover coordinates are then converted to world map coordinates for mapping
 5. The RGB values for each object to ensure contrast on the world map. Obstacles - RED, Navigable path - Green
 
+Please find video below:
+
+https://github.com/fola95/Udacity-Rover-Project/blob/master/output/mapping.mp4
+
 ```
 
 # Define a function to pass stored images to
